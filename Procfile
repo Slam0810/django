@@ -1,1 +1,1 @@
-web: gunicorn geams_sarl.wsgi
+web: gunicorn geams:geams
