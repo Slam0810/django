@@ -17,7 +17,7 @@ import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 #BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-BASE_DIR = Path(__file__).resolve().parent.parent
+#BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -29,9 +29,6 @@ SECRET_KEY = 'django-insecure-38y&ynar#*+(&49jw&=evvik@jz4b@9aiyl_fd&d4k8b0uzeb(
 
 # SECURITY WARNING: don't run with debug turned on in production!
 if os.environ.get('ENV') == 'PRODUCTION':
-    db_from_env = dj_database_url.config(conn_max_age=500)
-    DATABASES['default'].update(db_from_env)
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
     DEBUG = False
 else:
     DEBUG = True
@@ -149,14 +146,27 @@ USE_TZ = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),
-)
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-
-
 INTERNAL_IPS = ['127.0.0.1']
+
+if os.environ.get('ENV') == 'PRODUCTION':
+
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+    STATICFILES_DIRS = (
+        os.path.join(BASE_DIR, "static"),
+    )
+    db_from_env = dj_database_url.config(conn_max_age=500)
+    DATABASES['default'].update(db_from_env)
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+
+
+
+
+
+
+
