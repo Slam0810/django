@@ -1,1 +1,1 @@
-web: gunicorn salazare:salazare
+web: gunicorn salazare:app
