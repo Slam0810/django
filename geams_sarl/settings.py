@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'debug_toolbar',
     'compositionDuMahal', # ligne ajoutée
+    'salazare'
 ]
 
 MIDDLEWARE = [
