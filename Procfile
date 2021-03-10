@@ -1,1 +1,1 @@
-web: gunicorn geams:geams
+web: gunicorn salazare:salazare

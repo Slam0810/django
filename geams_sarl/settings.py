@@ -35,7 +35,7 @@ else:
 
 
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-38y&ynar#*+(&49jw&=evvik@jz4b@9aiyl_fd&d4k8b0uzeb(')
-ALLOWED_HOSTS = ['geams.herokuapp.com']
+ALLOWED_HOSTS = ['salazare.herokuapp.com']
 
 
 # Application definition
