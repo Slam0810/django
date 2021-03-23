@@ -1,1 +1,1 @@
-web: gunicorn salazare:app
+web: gunicorn geams_sarl:app  --log-file -
